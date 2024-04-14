@@ -1,7 +1,7 @@
 import axios from "axios";
 import { logout } from "./shared/utils/auth";
 
-export const hostName = "34.100.247.124";
+export const hostName = window.location.hostname;
 export const port = "5000";
 
 const apiClient = axios.create({

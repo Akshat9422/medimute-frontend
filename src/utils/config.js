@@ -1,5 +1,5 @@
 const predictedClassNames = [
-  " ",
+  "...",
   "I am feeling like vomiting.",
   "I had an injury.",
   "I am having a headache.",
@@ -8,8 +8,8 @@ const predictedClassNames = [
   "I have cough and my throat is aching.",
   "Yes",
   "No",
-  " ",
-  " ",
+  "...",
+  "...",
 ];
 
 export function getPredictedDisease(predictedClass) {

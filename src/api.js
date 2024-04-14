@@ -1,8 +1,8 @@
 import axios from "axios";
 import { logout } from "./shared/utils/auth";
 
-export const hostName = process.env.PRODUCTION == "true" ? "34.100.247.124" : "localhost";
-export const port = process.env.BACKEND_PORT || "5000"
+export const hostName = "34.100.247.124";
+export const port = "5000";
 
 const apiClient = axios.create({
   baseURL: `http://${hostName}:${port}/api`,

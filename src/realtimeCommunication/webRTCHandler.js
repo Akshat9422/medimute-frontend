@@ -33,6 +33,12 @@ const defaultConstraints = {
 export const getLocalStreamPreview = (onlyAudio = false, callbackFunc) => {
   const constraints = onlyAudio ? onlyAudioConstraints : defaultConstraints;
 
+  if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+    console.error("WebRTC not supported or not available in this environment.");
+    alert("WebRTC is not supported in your browser or you're not using HTTPS.");
+    return;
+  }
+
   navigator.mediaDevices
     .getUserMedia(constraints)
     .then((stream) => {
@@ -40,8 +46,8 @@ export const getLocalStreamPreview = (onlyAudio = false, callbackFunc) => {
       callbackFunc();
     })
     .catch((err) => {
-      console.log(err);
-      console.log("Cannot get an access to local stream");
+      console.error("Cannot access local media:", err);
+      alert("Unable to access your camera or microphone. Please check your browser permissions.");
     });
 };
 
